@@ -10,7 +10,7 @@ const AllProducts = () => {
 	const fetchProducts = async () => {
 		try {
 			setLoading(true);
-			const response = await fetch('https://dummyjson.com/products');
+			const response = await fetch('https://dummyjson.com/products?limit=10');
 
 			if (!response.ok) {
 				throw new Error('cannot fetch');
@@ -34,7 +34,7 @@ const AllProducts = () => {
 			AllProducts
 			<div>
 				{!loading ? (
-					<div>
+					<div className="flex flex-col gap-4 items-center text-center sm:grid sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-col-6">
 						{products && products.length ? (
 							products.map((productItem) => (
 								<ProductTile key={productItem.id} product={productItem} />

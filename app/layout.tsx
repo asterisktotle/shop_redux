@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import './globals.css';
+import ReduxProvider from '@/components/ReduxProvider';
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -8,8 +9,10 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className="box-border m-2  sm:mx-[30px] sm:bg-green-300 lg:bg-blue-400 xl:bg-red-300">
-				<Header />
-				{children}
+				<ReduxProvider>
+					<Header />
+					{children}
+				</ReduxProvider>
 			</body>
 		</html>
 	);
